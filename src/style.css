@@ -1,0 +1,24 @@
+main {
+	white-space: pre-wrap;
+}
+
+main.select-all {
+	background: lightblue;
+}
+
+main::after {
+	position: relative;
+	top: 2px;
+	font-size: 1.3rem;
+	content: '|';
+	animation: 0.5s linear 1s infinite alternate clig;
+}
+
+@keyframes clig {
+	0% {
+		color: black;
+	}
+	100% {
+		color: white;
+	}
+}
