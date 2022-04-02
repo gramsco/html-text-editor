@@ -14,7 +14,7 @@ class Renderer {
 	writer: Writer;
 	metaClicked: boolean;
 	state: OnOff;
-	constructor(element: HTMLElement, state = ON as OnOff) {
+	constructor(element: HTMLElement, state: OnOff) {
 		this.state = state;
 		this.element = element;
 		this.writer = new Writer();
@@ -29,12 +29,12 @@ class Renderer {
 		});
 
 		window.addEventListener('keyup', e => {
-			console.log('ouh');
+			if (this.state === 'OFF') return;
 			if (e.key === 'Meta') this.metaClicked = false;
 		});
 
 		window.addEventListener('keydown', e => {
-			console.log(e.key);
+			if (this.state === 'OFF') return;
 			switch (e.key) {
 				case 'Meta':
 					this.metaClicked = true;

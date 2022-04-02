@@ -17,7 +17,6 @@ function main() {
 			let id = setInterval(() => {
 				if (array.length === 0) {
 					clearInterval(id);
-					renderer.toggleState();
 					renderer.writer.lineBreak();
 					res(null);
 				}
@@ -45,7 +44,9 @@ function main() {
 			renderer.writer.removeLetter();
 			renderer.writer.removeLetter();
 			renderer.writer.removeLetter();
-			sayThings('ay !', 200);
+			sayThings('ay !', 200).then(() => {
+				renderer.toggleState();
+			});
 		});
 }
 
